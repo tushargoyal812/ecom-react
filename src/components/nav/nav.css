@@ -1,0 +1,71 @@
+:root {
+    --ecom-bg-color: #2874f0;
+    --ecom-color: #fff;
+  }
+  
+  .shop-nav {
+    border-radius: 0;
+    position: fixed;
+    z-index: 2;
+  }
+  
+  .shop-ship-header {
+    border-radius: 0rem;
+  }
+  
+  
+  .ecom-search {
+    border: none;
+  }
+  
+  .home-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+    margin-top: 8rem;
+  }
+  
+  .ecom-bg-blue {
+    background-color: var(--ecom-bg-color);
+  }
+  
+  .ecom-blue {
+    color: var(--ecom-bg-color);
+  }
+  
+  .ecom-bg-white {
+    background-color: var(--ecom-color);
+  }
+  
+  .ecom-white {
+    color: var(--ecom-color);
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 10rem;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+  
+  .category-img {
+    height: 7rem;
+  }
+  
+  .bottom-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+  }
+  
+  .product-img {
+    height: 10rem;
+    width: 7rem;
+  }
+  
+  
+  .card {
+    width: 12rem;
+    border-radius: 0rem;
+    box-shadow: -5px 5px 5px #cbd5e1;
+  }

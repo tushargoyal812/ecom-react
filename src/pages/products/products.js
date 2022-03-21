@@ -7,40 +7,40 @@ export const Products=()=>{
     return(
         <div>
         <Navbar/>
-        <div class="product-main-sidebar ">
+        <div className="product-main-sidebar ">
             <Sidebar/>
-        <main class="product-main p-1">
+        <main className="product-main p-1">
             <div>
-                <span id="hamburger" class="material-icons">
+                <span id="hamburger" className="material-icons">
                     menu
                 </span>
             </div>
-            <div class="showing p-2">
+            <div className="showing p-2">
                 Showing All Products
             </div>
            
-            <div class="all-products">
+            <div className="all-products">
                 {data.map(item=>(
-                   <div class="card product-cards">
-                   <div class="badge-section"></div>
-                   <i class="far fa-heart like-cart gray-cart"></i>
-                   {/* <span class="badge-best-seller">Best seller</span> */}
-                   <span class="display-none">
-                       <i class="far fa-times-circle cross-icon "></i>
+                   <div className="card product-cards">
+                   <div className="badge-section"></div>
+                   <i className="far fa-heart like-cart gray-cart"></i>
+                   {/* <span className="badge-best-seller">Best seller</span> */}
+                   <span className="display-none">
+                       <i className="far fa-times-circle cross-icon "></i>
                    </span>
-                   <div class="card-main-section">
-                       <img src={item.image} class="product-img" alt=""/>
-                       <main class="middle">
-                           <div class="small-1">{item.title}</div>
+                   <div className="card-main-section">
+                       <img src={item.image} className="product-img" alt=""/>
+                       <main className="middle">
+                           <div className="small-1">{item.title}</div>
                            <div>{item.ratings}⭐</div>
-                           <div class="small-2">Rs.{item.price}/-
+                           <div className="small-2">Rs.{item.price}/-
                            </div>
-                           {item.inStock&&<div class="small-2">in stock</div>}
-                           {!item.inStock&&<div class="small-2">out of stock</div>}
-                           {item.fastDelivery?<div class="small-1">Fast Delivery</div>:<div class="small-1">3 days minimum</div>}
+                           {item.inStock&&<div className="small-2">in stock</div>}
+                           {!item.inStock&&<div className="small-2">out of stock</div>}
+                           {item.fastDelivery?<div className="small-1">Fast Delivery</div>:<div className="small-1">3 days minimum</div>}
                        </main>
-                       <div class="btn-section">
-                           <button class="cart-button">
+                       <div className="btn-section">
+                           <button className="cart-button">
                                Add to cart
                            </button>
                        </div>

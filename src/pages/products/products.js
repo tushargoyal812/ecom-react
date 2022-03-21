@@ -25,7 +25,7 @@ export const Products=()=>{
                 Showing All Products
             </div>
             <div className="all-products">
-                {data.map(item=>(
+                {compose.map(item=>(
                    <div className="card product-cards">
                    <div className="badge-section"></div>
                    <i className="far fa-heart like-cart gray-cart"></i>

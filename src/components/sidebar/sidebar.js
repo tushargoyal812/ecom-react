@@ -12,10 +12,10 @@ export const Sidebar=()=>{
             <div className="product-sort flex flex-direction-col p-1">
                 <h2 className="pb-0-5">sort by</h2>
                 <div className="pb-0-5">
-                    <input type="radio" /><span>Price low to high</span>
+                    <input type="radio" name='sort-by-price' onChange={()=>dispatch({type:'low-to-high'})} /><span>Price low to high</span>
                 </div>
                 <div>
-                    <input name='sorting' onChange={()=>dispatch({type:'high-to-low'})} type="radio" /><span>Price high to low</span>
+                    <input name='sorting' name='sort-by-price' onChange={()=>dispatch({type:'high-to-low'})} type="radio" /><span>Price high to low</span>
                 </div>
             </div>
             <div className="product-category flex flex-direction-col p-1">
@@ -41,18 +41,6 @@ export const Sidebar=()=>{
             </div>
             <div className="product-rating flex flex-direction-col p-1">
                 <h2 className="pb-0-5">rating</h2>
-                {/* <div className="pb-0-5">
-                    <input type="radio" /><span>4 star and above</span>
-                </div>
-                <div className="pb-0-5">
-                    <input type="radio" /><span>3 star and above</span>
-                </div>
-                <div className="pb-0-5">
-                    <input type="radio" /><span>2 star and above</span>
-                </div>
-                <div className="pb-0-5">
-                    <input type="radio" /><span>1 star and above</span>
-                </div> */}
                 <input type="range" className="p-1"/>
             </div>
         </aside>

@@ -29,7 +29,6 @@ export const Products=()=>{
                    <div className="card product-cards">
                    <div className="badge-section"></div>
                    <i className="far fa-heart like-cart gray-cart"></i>
-                   {/* <span className="badge-best-seller">Best seller</span> */}
                    <span className="display-none">
                        <i className="far fa-times-circle cross-icon "></i>
                    </span>

@@ -1,10 +1,6 @@
 import { useFilter } from '../../filter-context/filter-context';
 
-
-
-
 export const Sidebar=()=>{
-
 
     const {dispatch}=useFilter()
 

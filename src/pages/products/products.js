@@ -2,8 +2,14 @@ import {Navbar} from '../../components/nav/nav'
 import './products.css'
 import { useAxios } from '../../useAxios/useAxios'
 import { Sidebar } from '../../components/sidebar/sidebar'
+import { useFilter } from '../../filter-context/filter-context'
+import { highToLow } from '../../filter-functions/high-to-low'
+import {lowToHigh} from '../../filter-functions/low-to-high'
 export const Products=()=>{
     const {data}=useAxios()
+    const {state}=useFilter()
+    const {sorting}=state;
+    const compose=lowToHigh(highToLow(data,sorting),sorting)
     return(
         <div>
         <Navbar/>
@@ -18,13 +24,11 @@ export const Products=()=>{
             <div className="showing p-2">
                 Showing All Products
             </div>
-           
             <div className="all-products">
-                {data.map(item=>(
+                {compose.map(item=>(
                    <div className="card product-cards">
                    <div className="badge-section"></div>
                    <i className="far fa-heart like-cart gray-cart"></i>
-                   {/* <span className="badge-best-seller">Best seller</span> */}
                    <span className="display-none">
                        <i className="far fa-times-circle cross-icon "></i>
                    </span>

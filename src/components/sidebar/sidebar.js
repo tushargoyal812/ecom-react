@@ -1,4 +1,12 @@
+import { useFilter } from '../../filter-context/filter-context';
+
+
+
+
 export const Sidebar=()=>{
+
+
+    const {dispatch}=useFilter()
 
     return(
         <aside class="product-sidebar p-2 mt-5">
@@ -8,10 +16,10 @@ export const Sidebar=()=>{
             <div class="product-sort flex flex-direction-col p-1">
                 <h2 class="pb-0-5">sort by</h2>
                 <div class="pb-0-5">
-                    <input type="radio" /><span>Price low to high</span>
+                    <input name='sorting' onChange={()=>dispatch({type:'low-to-high'})} type="radio" /><span>Price low to high</span>
                 </div>
                 <div>
-                    <input type="radio" /><span>Price high to low</span>
+                    <input name='sorting' onChange={()=>dispatch({type:'high-to-low'})} type="radio" /><span>Price high to low</span>
                 </div>
             </div>
             <div class="product-category flex flex-direction-col p-1">

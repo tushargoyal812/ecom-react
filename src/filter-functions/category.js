@@ -1,5 +1,5 @@
 export const categoryHandler=(data,state)=>{
-    let arr=[]
+    let categoryArr=[]
     if(!state.category.ios&&!state.category.android)
     {
         return data
@@ -7,14 +7,12 @@ export const categoryHandler=(data,state)=>{
     if(state.category.ios)
     {
         let newArr=[...data].filter(item=>item.ios)
-        arr.push(...newArr)
-        console.log('ios wala',arr);
+        categoryArr.push(...newArr)
     }
     if(state.category.android)
     {
         let newArr=[...data].filter(item=>item.android)
-        arr.push(...newArr)
-        console.log('android wala',arr);
+        categoryArr.push(...newArr)
     }
-    return arr
+    return categoryArr
 }

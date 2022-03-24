@@ -6,10 +6,3 @@ export const priceRange = (data, state) => {
         return data
     }
     }
-    //    switch (state.priceRange) {
-    //        case 10:  
-    //           return [...data].filter(item=>item.price>10000)
-
-    //        default:
-    //            return data;
-    //    }

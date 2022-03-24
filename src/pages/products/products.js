@@ -3,17 +3,10 @@ import './products.css'
 import { useAxios } from '../../useAxios/useAxios'
 import { Sidebar } from '../../components/sidebar/sidebar'
 import { useFilter } from '../../filter-context/filter-context'
-import { highToLow } from '../../filter-functions/high-to-low'
-import {lowToHigh} from '../../filter-functions/low-to-high'
-import { inStock } from '../../filter-functions/in-stock'
-import { fastDelivery } from '../../filter-functions/fast-delivery'
-import { priceRange } from '../../filter-functions/price-range'
-import { rating } from '../../filter-functions/rating'
-import { categoryHandler } from '../../filter-functions/category'
+import {highToLow,lowToHigh,inStock,fastDelivery,priceRange,rating,categoryHandler} from '../../filter-functions/index'
 export const Products=()=>{
     const {data}=useAxios()
     const {state}=useFilter()
-    
     const data1=highToLow(data,state)
     const data2=lowToHigh(data1,state)
     const data3=inStock(data2,state)
@@ -22,7 +15,6 @@ export const Products=()=>{
     const data6=rating(data5,state)
     const data7=categoryHandler(data6,state)
     const compose=data7
-    // const compose=categoryHandler(rating(priceRange(fastDelivery(inStock(lowToHigh(highToLow(data,state),state),state),state),state),state),state)
     return(
         <div>
         <Navbar/>

@@ -15,7 +15,8 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    categoryName: "non-fiction",
+    ios: true,
+    android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqjtd3k0/mobile/o/4/x/c11-2021-rmx3231-realme-original-imag4j4yrdt7d9cj.jpeg?q=70'
   },
   {
@@ -26,7 +27,8 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:true,
-    categoryName: "horror",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0igvww0/mobile/n/h/4/-original-imagcahnwypwuaac.jpeg?q=70'
   },
   {
@@ -37,7 +39,8 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kn22m4w0/mobile/9/k/s/galaxy-f12-sm-f127glbiins-samsung-original-imagftmhhhvghq7w.jpeg?q=70'
   },
   {
@@ -48,7 +51,8 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    categoryName: "horror",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
@@ -59,7 +63,8 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kmwcuq80/mobile/7/p/5/galaxy-m12-galaxy-m12-samsung-original-imagfzuhqtn5kpvj.jpeg?q=70'
   },
   {
@@ -70,7 +75,8 @@ export const products = [{
     ratings:2,
     inStock:true,
     fastDelivery:false,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqqykcw0/mobile/j/5/7/galaxy-f22-sm-e225flbdins-samsung-original-imag4z99fp4qdfby.jpeg?q=70'
   },
   {
@@ -81,18 +87,19 @@ export const products = [{
     ratings:1,
     inStock:true,
     fastDelivery:false,
-    categoryName: "horror",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
     _id: uuid(),
-    title: "Moto Series",
+    title: "Apple series",
     deal: "Best Deals",
     price: "25000",
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    categoryName: "fiction",
+    ios: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kmwcuq80/mobile/7/p/5/galaxy-m12-galaxy-m12-samsung-original-imagfzuhqtn5kpvj.jpeg?q=70'
   },
   {
@@ -103,7 +110,8 @@ export const products = [{
     ratings:4,
     inStock:false,
     fastDelivery:false,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqqykcw0/mobile/j/5/7/galaxy-f22-sm-e225flbdins-samsung-original-imag4z99fp4qdfby.jpeg?q=70'
   },
   {
@@ -114,7 +122,8 @@ export const products = [{
     ratings:2,
     inStock:false,
     fastDelivery:false,
-    categoryName: "horror",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
@@ -125,7 +134,8 @@ export const products = [{
     ratings:4,
     inStock:false,
     fastDelivery:false,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kmwcuq80/mobile/7/p/5/galaxy-m12-galaxy-m12-samsung-original-imagfzuhqtn5kpvj.jpeg?q=70'
   },
   {
@@ -136,18 +146,20 @@ export const products = [{
     ratings:1,
     inStock:false,
     fastDelivery:false,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqqykcw0/mobile/j/5/7/galaxy-f22-sm-e225flbdins-samsung-original-imag4z99fp4qdfby.jpeg?q=70'
   },
   {
     _id: uuid(),
-    title: "Samsung Series",
+    title: "Apple series",
     deal: "Best Deals",
     price: "8000",
     ratings:2,
     inStock:false,
     fastDelivery:true,
-    categoryName: "horror",
+    ios: true,
+    android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0igvww0/mobile/n/h/4/-original-imagcahnwypwuaac.jpeg?q=70'
   },
   {
@@ -158,7 +170,8 @@ export const products = [{
     ratings:3,
     inStock:false,
     fastDelivery:true,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kn22m4w0/mobile/9/k/s/galaxy-f12-sm-f127glbiins-samsung-original-imagftmhhhvghq7w.jpeg?q=70'
   },
   {
@@ -169,18 +182,20 @@ export const products = [{
     ratings:3,
     inStock:false,
     fastDelivery:true,
-    categoryName: "horror",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
     _id: uuid(),
-    title: "Samsung Series",
+    title: "Apple series",
     deal: "Best Deals",
     price: "3000",
     ratings:4,
     inStock:false,
     fastDelivery:true,
-    categoryName: "horror",
+    ios: true,
+    android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0igvww0/mobile/n/h/4/-original-imagcahnwypwuaac.jpeg?q=70'
   },
   {
@@ -191,18 +206,20 @@ export const products = [{
     ratings:2,
     inStock:true,
     fastDelivery:false,
-    categoryName: "fiction",
+    android: true,
+    ios: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kn22m4w0/mobile/9/k/s/galaxy-f12-sm-f127glbiins-samsung-original-imagftmhhhvghq7w.jpeg?q=70'
   },
   {
     _id: uuid(),
-    title: "Samsung Series",
+    title: "Apple series",
     deal: "Best Deals",
     price: "39000",
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    categoryName: "horror",
+    ios: true,
+    android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   }
 ];

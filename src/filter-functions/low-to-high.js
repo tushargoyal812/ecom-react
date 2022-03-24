@@ -1,5 +1,5 @@
-export const lowToHigh=(data,sorting)=>{
-    if(sorting==='low-to-high')
+export const lowToHigh=(data,state)=>{
+    if(state.sorting==='low-to-high')
     {
         return [...data].sort((a,b)=>a.price-b.price)
     }else{

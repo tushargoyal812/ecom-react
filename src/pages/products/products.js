@@ -29,7 +29,6 @@ export const Products=()=>{
     
     
     const addToCartHandler= async (product)=>{
-        // console.log(product,e.target.innerText);
         const token=localStorage.getItem("user")
         console.log(cartName,"from handler");
         try {
@@ -46,17 +45,7 @@ export const Products=()=>{
           } catch (error) {
             console.log(error);
           }
-        // if(auth)
-        // {
-            
-        // }else{
-        //     navigate("/login")
-        // }
     }
-
-                // console.log(auth,"auth chala");
-            // setCart([...cart,item])
-            // setCartCount(count=>count+1)
     
     return(
         <div>
@@ -90,7 +79,6 @@ export const Products=()=>{
                            {product.inStock&&<div className="small-2">in stock</div>}
                            {!product.inStock&&<div className="small-2">out of stock</div>}
                            {product.fastDelivery?<div className="small-1">Fast Delivery</div>:<div className="small-1">3 days minimum</div>}
-                           {/* {product.Android?<div className="small-1">android</div>:<div className="small-1">IOS</div>} */}
                        </main>
                        <div className="btn-section">
                            {cart.some(cartProduct=>cartProduct.id===product.id)?<button onClick={()=>addToCartHandler(product)} className="cart-button">go to cart</button>:<button onClick={()=>addToCartHandler(product)} className="cart-button">add to cart</button>}

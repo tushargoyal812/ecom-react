@@ -11,12 +11,10 @@ export const Login=()=>{
 
 
     const loginHandler= async ()=>{
-        console.log("show");
         try{
             const response =await axios.post('api/auth/login',show)
             localStorage.setItem("user",response.data.encodedToken)
             setAuth(true)
-            console.log(auth,"from login");
             navigate("/")
         }catch(error){console.log(error);}
     }

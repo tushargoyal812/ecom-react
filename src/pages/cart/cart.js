@@ -38,8 +38,6 @@ export const Cart=()=>{
                             <p className="para">{product.title}</p>
                             <div className="small-1">iPhone 13 (256GB) - Midnight</div>
                             <div className="small-2">Rs.{product.price}/-
-                                {/* <span className="real-price">MRP: ₹79900(1% OFF)
-                                </span> */}
                             </div>
                             <div className="btn-section btn-end flex">
                                 <button onClick={()=>removeFromCartHandler(product)} className="cart-button horizontal-btn ecom-bg-blue">

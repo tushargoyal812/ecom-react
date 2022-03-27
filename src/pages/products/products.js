@@ -1,12 +1,20 @@
 import {Navbar} from '../../components/nav/nav'
+import { useState } from 'react'
 import './products.css'
 import { useAxios } from '../../useAxios/useAxios'
 import { Sidebar } from '../../components/sidebar/sidebar'
 import { useFilter } from '../../filter-context/filter-context'
 import {highToLow,lowToHigh,inStock,fastDelivery,priceRange,rating,categoryHandler} from '../../filter-functions/index'
+import { useCart } from '../../filter-context/cart-context'
+import { useAuth } from '../../filter-context/auth-context'
+import { Navigate, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 export const Products=()=>{
     const {data}=useAxios()
     const {state}=useFilter()
+    const {cart,setCart,setCartCount}=useCart()
+    const {auth}=useAuth()
+    const navigate=useNavigate()
     const data1=highToLow(data,state)
     const data2=lowToHigh(data1,state)
     const data3=inStock(data2,state)
@@ -15,6 +23,41 @@ export const Products=()=>{
     const data6=rating(data5,state)
     const data7=categoryHandler(data6,state)
     const compose=data7
+
+    const [cartName,setCartName]=useState(false)
+
+    
+    
+    const addToCartHandler= async (product)=>{
+        // console.log(product,e.target.innerText);
+        const token=localStorage.getItem("user")
+        console.log(cartName,"from handler");
+        try {
+            const response = await axios.post(`/api/user/cart`,{
+                product
+            },{
+                headers: {
+                    authorization: token, // passing token as an authorization header
+                  },
+            }
+            );
+            setCart(response.data.cart)
+            setCartCount(count=>count+1)
+          } catch (error) {
+            console.log(error);
+          }
+        // if(auth)
+        // {
+            
+        // }else{
+        //     navigate("/login")
+        // }
+    }
+
+                // console.log(auth,"auth chala");
+            // setCart([...cart,item])
+            // setCartCount(count=>count+1)
+    
     return(
         <div>
         <Navbar/>
@@ -30,34 +73,27 @@ export const Products=()=>{
                 Showing All Products
             </div>
             <div className="all-products">
-                {compose.map(item=>(
-                   <div key={item.id} className="card product-cards">
+                {compose.map(product=>(
+                   <div key={product.id} className="card product-cards">
                    <div className="badge-section"></div>
                    <i className="far fa-heart like-cart gray-cart"></i>
                    <span className="display-none">
                        <i className="far fa-times-circle cross-icon "></i>
                    </span>
                    <div className="card-main-section">
-                       <img src={item.image} className="product-img" alt=""/>
+                       <img src={product.image} className="product-img" alt=""/>
                        <main className="middle">
-                           <div className="small-1">{item.title}</div>
-                           <div>{item.ratings}⭐</div>
-                           <div className="small-2">Rs.{item.price}/-
+                           <div className="small-1">{product.title}</div>
+                           <div>{product.ratings}⭐</div>
+                           <div className="small-2">Rs.{product.price}/-
                            </div>
-                           {item.inStock&&<div className="small-2">in stock</div>}
-                           {!item.inStock&&<div className="small-2">out of stock</div>}
-                           {item.fastDelivery?<div className="small-1">Fast Delivery</div>:<div className="small-1">3 days minimum</div>}
-                           {/* {item.Android?<div className="small-1">android</div>:<div className="small-1">IOS</div>} */}
+                           {product.inStock&&<div className="small-2">in stock</div>}
+                           {!product.inStock&&<div className="small-2">out of stock</div>}
+                           {product.fastDelivery?<div className="small-1">Fast Delivery</div>:<div className="small-1">3 days minimum</div>}
+                           {/* {product.Android?<div className="small-1">android</div>:<div className="small-1">IOS</div>} */}
                        </main>
                        <div className="btn-section">
-                           <button className="cart-button">
-                               Add to cart
-                           </button>
-                       </div>
-                       <div className="btn-section">
-                           <button className="cart-button">
-                               Add to wishlist
-                           </button>
+                           {cart.some(cartProduct=>cartProduct.id===product.id)?<button onClick={()=>addToCartHandler(product)} className="cart-button">go to cart</button>:<button onClick={()=>addToCartHandler(product)} className="cart-button">add to cart</button>}
                        </div>
                    </div>
                </div>

@@ -1,0 +1,72 @@
+
+:root{
+    --shadow-color:#cbd5e1;
+    --ecom-bg-color: #2874f0;
+    --ecom-color: #fff;
+}
+
+.price-details{
+    width: 20rem;
+    background-color: var(--white-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.ecom-bg-blue {
+    background-color: var(--ecom-bg-color);
+}
+
+.ecom-blue {
+    color: var(--ecom-bg-color);
+}
+
+.ecom-bg-white {
+    background-color: var(--ecom-color);
+}
+
+.ecom-white {
+    color: var(--ecom-color);
+}
+
+
+.border-radius-0{
+    border-radius: 0;
+}
+
+
+.shop-ship-header {
+    border-radius: 0rem;
+}
+
+
+.ecom-search {
+    border: none;
+}
+
+.horizontal-card{
+    border-radius: 0rem;
+}
+
+.cart-page{
+    flex-wrap: wrap;
+}
+
+.horizontal-btn{
+    width: 10rem;
+    border: none;
+}
+
+.place-order-btn{
+    background-color: var(--primary-color);
+}
+
+.pd{
+    padding: 0.5rem 2rem;
+}
+
+.margin-0{
+    margin: 2rem;
+}
+
+.space-between-cart{
+    justify-content: space-between;
+}

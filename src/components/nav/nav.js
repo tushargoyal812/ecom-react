@@ -2,10 +2,12 @@ import './nav.css'
 import {Link} from 'react-router-dom'
 import { useCart } from '../../filter-context/cart-context'
 import { useAuth } from '../../filter-context/auth-context'
+import { useWishlist } from '../../filter-context/wishlist-context'
 export const Navbar=()=>{
 
     const {cartCount}=useCart()
     const {auth,setAuth}=useAuth()
+    const {wishlistCount}=useWishlist()
 
     const logoutHandler=()=>{
         localStorage.removeItem("user")
@@ -18,7 +20,8 @@ export const Navbar=()=>{
             <Link to="/">
                 <div className="ecom-white">ShopShip</div>
             </Link>
-            <ul className="e-com-nav-items">
+            <ul>
+                <Link className="e-com-nav-items" to="/products">Products</Link>
             </ul>
             <input type="text" className="search-input ecom-search" placeholder="search"/>
             <div className="e-com-social">
@@ -27,11 +30,11 @@ export const Navbar=()=>{
                         {auth?<button onClick={logoutHandler} className="login-btn ecom-bg-white ecom-blue">Log out</button>:<button className="login-btn ecom-bg-white ecom-blue">Login</button>}
                     </Link>
                 </div>
-                <a href="/wishlist/wishlist.html" className="e-com-nav-icons anchor-style pointer">
+                <Link to="/wishlist" className="e-com-nav-icons anchor-style pointer">
                     <i className="fas fa-heart heart-icon ecom-white">
-                        <div className="ecom-badge">4</div>
+                        <div className="ecom-badge">{wishlistCount}</div>
                     </i>
-                </a>
+                </Link>
                 <Link to="/cart" className="e-com-nav-icons anchor-style pointer">
                     <i className="fas fa-shopping-cart cart-icon ecom-white">
                         <div className="ecom-badge">{cartCount}</div>

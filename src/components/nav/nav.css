@@ -13,6 +13,9 @@
     border-radius: 0rem;
   }
   
+  .e-com-nav-items{
+    color: var(--ecom-color)
+  }
   
   .ecom-search {
     border: none;

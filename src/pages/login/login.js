@@ -2,12 +2,14 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../../filter-context/auth-context'
 import './login.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 export const Login=()=>{
     const navigate=useNavigate()
     const {auth,setAuth}=useAuth()
     const [show,setShow]=useState({email: "",
     password: ""})
+    const [visible,setVisible]=useState(true)
+    const [type,setType]=useState('password')
 
 
     const loginHandler= async ()=>{
@@ -17,6 +19,17 @@ export const Login=()=>{
             setAuth(true)
             navigate("/")
         }catch(error){console.log(error);}
+    }
+
+    const showHandler=()=>{
+        if(visible)
+        {
+            setVisible(false)
+            setType("text")
+        }else{
+            setVisible(true)
+            setType("password")
+        }
     }
 
 
@@ -32,8 +45,9 @@ export const Login=()=>{
             </div>
             <div className="pb-1">
             <label htmlFor="" className="passwaord-label">Password</label>
-            <div>
-                <input value={show.password} name='password' onChange={(e)=>setShow({...show,password:e.target.value})} type="password" className="login-input px-3"/>
+            <div className='password-wrapper'>
+                <input value={show.password} name='password' onChange={(e)=>setShow({...show,password:e.target.value})} type={type} className="login-input px-3"/>
+                {visible?<span onClick={showHandler} class="material-icons eye">visibility_off</span>:<span onClick={showHandler}class="material-icons eye">remove_red_eye</span>}
             </div>
             </div>
             <div className="flex pb-1">
@@ -44,7 +58,7 @@ export const Login=()=>{
             <div className="mb-1 flex justify-content-center">
                 <button onClick={loginHandler} className="btn basic login-page-btn ecom-bg-blue">Login</button>
             </div>
-            <div><a className="new-account" href="/ecom-signup/ecom-signup.html">Create New Account </a></div>
+            <div><Link className="new-account" to="/signup">Create New Account </Link></div>
         </div>
     </section>
     )

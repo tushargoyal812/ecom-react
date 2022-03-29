@@ -9,6 +9,7 @@ import { useCart } from '../../filter-context/cart-context'
 import { useAuth } from '../../filter-context/auth-context'
 import { Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useWishlist } from '../../filter-context/wishlist-context'
 export const Products=()=>{
     const {data}=useAxios()
     const {state}=useFilter()
@@ -25,26 +26,54 @@ export const Products=()=>{
     const compose=data7
 
     const [cartName,setCartName]=useState(false)
+    const {setWishlist,setWishlistCount,wishlist,setIsItem}=useWishlist()
 
     
     
     const addToCartHandler= async (product)=>{
         const token=localStorage.getItem("user")
         console.log(cartName,"from handler");
-        try {
-            const response = await axios.post(`/api/user/cart`,{
+        if(token)
+        {
+            try {
+                const response = await axios.post(`/api/user/cart`,{
+                    product
+                },{
+                    headers: {
+                        authorization: token, // passing token as an authorization header
+                      },
+                }
+                );
+                setCart(response.data.cart)
+                setCartCount(count=>count+1)
+              } catch (error) {
+                console.log(error);
+              }
+        }else{
+            navigate('/login')
+        }
+    }
+
+
+    const wishListHandler= async(product)=>{
+        const wishlistToken=localStorage.getItem("user")
+        console.log(product,"wishlist product");
+        console.log(wishlistToken,"wishlist token");
+        try{
+            const wishlistResponse=await axios.post('/api/user/wishlist',{
                 product
             },{
                 headers: {
-                    authorization: token, // passing token as an authorization header
+                    authorization: wishlistToken, // passing token as an authorization header
                   },
-            }
-            );
-            setCart(response.data.cart)
-            setCartCount(count=>count+1)
-          } catch (error) {
+            })
+            setWishlist(wishlistResponse.data.wishlist);
+            setWishlistCount(count=>count+1)
+        }
+        catch(error)
+        {
             console.log(error);
-          }
+        }
     }
     
     return(
@@ -65,7 +94,14 @@ export const Products=()=>{
                 {compose.map(product=>(
                    <div key={product.id} className="card product-cards">
                    <div className="badge-section"></div>
+                   {/* <div onClick={()=>wishListHandler(product)}>
+                    {wishlist.some(wishProduct=>wishProduct.id===product.id)?<i className="far fa-heart like-cart"></i>:<i className="far fa-heart like-cart gray-cart"></i>}
+                   </div> */}
+                   {wishlist.some(wishProduct=>wishProduct.id===product.id)?<div onClick={()=>navigate('/wishlist')}>
+                   <i className="far fa-heart like-cart"></i>
+                   </div>:<div onClick={()=>wishListHandler(product)}>
                    <i className="far fa-heart like-cart gray-cart"></i>
+                   </div>}
                    <span className="display-none">
                        <i className="far fa-times-circle cross-icon "></i>
                    </span>
@@ -81,7 +117,7 @@ export const Products=()=>{
                            {product.fastDelivery?<div className="small-1">Fast Delivery</div>:<div className="small-1">3 days minimum</div>}
                        </main>
                        <div className="btn-section">
-                           {cart.some(cartProduct=>cartProduct.id===product.id)?<button onClick={()=>addToCartHandler(product)} className="cart-button">go to cart</button>:<button onClick={()=>addToCartHandler(product)} className="cart-button">add to cart</button>}
+                           {cart.some(cartProduct=>cartProduct.id===product.id)?<button onClick={()=>navigate('/cart')} className="cart-button">go to cart</button>:<button onClick={()=>addToCartHandler(product)} className="cart-button">add to cart</button>}
                        </div>
                    </div>
                </div>

@@ -2,23 +2,23 @@
     --shadow: #cbd5e1;
 }
 
-.login-wrapper{
+.signup-wrapper{
     width: 30rem;
     box-shadow: 0 0 8px var(--shadow);
     margin-top: 8rem;
 }
 
-.login-input{
+.signup-input{
     padding: 0.5rem 5rem;
     border-radius: 3px;
     border: 1px solid var(--gray-color);
 }
 
-.login-input:focus{
+.signup-input:focus{
     outline: none;
 }
 
-.login-page-btn{
+.signup-page-btn{
     padding: 0.5rem 7rem;
     flex-shrink: 0;
 }
@@ -31,16 +31,6 @@ a{
     color: var(--secondary-color);
 }
 
-.login-section{
+.signup-section{
     height: 70vh;
-}
-
-.password-wrapper{
-    position: relative;
-}
-
-.eye{
-    position: absolute;
-    right: 1rem;
-    cursor: pointer;
 }

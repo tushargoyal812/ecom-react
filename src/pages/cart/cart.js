@@ -1,12 +1,17 @@
 import { Navbar } from "../../components/nav/nav"
 import './cart.css'
+import '../wishlist/wishlist.css'
 import mobile from '../../assets/mobile.png'
 import { useCart } from "../../filter-context/cart-context"
+import {useWishlist} from '../../filter-context/wishlist-context'
 import axios from "axios"
+import {useNavigate} from 'react-router-dom'
 
 
 export const Cart=()=>{
     const {cart,setCart,setCartCount}=useCart()
+    const {setWishlist,setWishlistCount,wishlist}=useWishlist()
+    const navigate=useNavigate()
     console.log(cart,"from cart");
 
     const removeFromCartHandler= async (product)=>{
@@ -20,15 +25,51 @@ export const Cart=()=>{
             })
             setCart(response.data.cart);
             setCartCount(cartCount=>cartCount-1)
-            console.log(response);
+            console.log(response,"remove from cart");
         }catch(error){
             console.log(error);
         }
     }
 
+    const moveToWishlistHandler= async (product)=>{
+        const token=localStorage.getItem("user")
+        if(wishlist.some(wishItem=>wishItem.id===product.id))
+        {
+            removeFromCartHandler(product)
+        }else{
+            try {
+                const response=await axios.post('/api/user/wishlist',{
+                    product
+                },{
+                  headers: {
+                    authorization: token, // passing token as an authorization header
+                  },
+                })
+                setWishlist(response.data.wishlist);
+                setWishlistCount(count=>count+1)
+                removeFromCartHandler(product)
+              } catch (error) {
+                  console.log(error);
+              }
+        }
+    }
+
+    let price=0
+    let discount=0
+    let dc=0
+
+    cart.map(cartItem=>{
+        price+=Number(cartItem.price)
+        discount+=Number(cartItem.discount)
+        dc+=Number(cartItem.deliveryCh)
+    })
+
     return (
         <div>
             <Navbar/>
+            {cart.length===0?<div className="showing flex justify-content-center p-1">
+                <h2 className="wishlist-heading">No items in cart</h2>
+            </div>:""}
             <main className="cart-page centered py-5">
                 {cart.map(product=>(
                     <div style={{width:"25rem"}} key={product.id} className="card flex horizontal-card margin-0">
@@ -44,11 +85,16 @@ export const Cart=()=>{
                                     Remove From Cart
                                 </button>
                             </div>
+                            <div className="btn-section btn-end flex">
+                                <button onClick={()=>moveToWishlistHandler(product)} className="cart-button horizontal-btn ecom-bg-blue">
+                                    move to wishlist
+                                </button>
+                            </div>
                         </main>
                     </div>
                     </div>
                 ))}
-            <div className="price-details p-2">
+                {cart.length>0?<div className="price-details p-2">
             <h2>price details</h2>
             <hr className="my-1"/>
             <div className="flex space-between-cart">
@@ -56,7 +102,7 @@ export const Cart=()=>{
                     Price(1 product)
                 </div>
                 <div>
-                    ₹78900
+                    ₹ {price}
                 </div>
             </div>
             <div className="flex space-between-cart">
@@ -64,7 +110,7 @@ export const Cart=()=>{
                     Discount
                 </div>
                 <div>
-                    -₹1000
+                    -₹ {discount}
                 </div>
             </div>
             <div className="flex space-between-cart">
@@ -72,7 +118,7 @@ export const Cart=()=>{
                     Delivery Charges
                 </div>
                 <div>
-                    ₹100
+                    ₹ {dc}
                 </div>
             </div>
             <hr className="my-1"/>
@@ -81,15 +127,15 @@ export const Cart=()=>{
                     Total
                 </h2>
                 <h2>
-                    ₹78900
+                    ₹ {price-discount+dc}
                 </h2>
             </div>
             <hr className="my-1"/>
-            <div>You will save ₹1000 on this order</div>
+            <div>You will save ₹ {discount} on this order</div>
             <div className="order-btn flex justify-content-center">
                 <button className="btn basic m-1 pd ecom-bg-blue">PLACE ORDER</button>
             </div>
-            </div>
+            </div>:""}
             </main>
         </div>
         )

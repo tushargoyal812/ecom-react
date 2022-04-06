@@ -4,6 +4,7 @@ import '../wishlist/wishlist.css'
 import mobile from '../../assets/mobile.png'
 import { useCart } from "../../filter-context/cart-context"
 import {useWishlist} from '../../filter-context/wishlist-context'
+import { addToCartHandler } from "../../util-functions/add-to-cart"
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 
@@ -13,6 +14,7 @@ export const Cart=()=>{
     const {setWishlist,setWishlistCount,wishlist}=useWishlist()
     const navigate=useNavigate()
     console.log(cart,"from cart");
+
 
     const removeFromCartHandler= async (product)=>{
         const token=localStorage.getItem("user")
@@ -54,30 +56,80 @@ export const Cart=()=>{
         }
     }
 
+
+    const qunatityHandler= async (type,product)=>{
+        const token=localStorage.getItem("user")
+        console.log(token);
+        if(type==='increment')
+        {
+            try{
+                const response=await axios.post(`/api/user/cart/${product._id}`,{
+                    action: {
+                      type: type
+                    }
+                  },{
+                    headers: {
+                      authorization: token, // passing token as an authorization header
+                    },
+                  })
+                  setCart(response.data.cart)
+            }catch(error){
+                console.log(error);
+            }
+        }else{
+            try{
+                const response=await axios.post(`/api/user/cart/${product._id}`,{
+                    action: {
+                      type: type
+                    }
+                  },{
+                    headers: {
+                      authorization: token, // passing token as an authorization header
+                    },
+                  })
+                  setCart(response.data.cart)
+            }catch(error){
+                console.log(error);
+            } 
+        }
+    }
+
+
+    console.log(cart,"cart item");
+
+
     let price=0
     let discount=0
     let dc=0
 
     cart.map(cartItem=>{
-        price+=Number(cartItem.price)
-        discount+=Number(cartItem.discount)
+        price+=Number(cartItem.price*cartItem.qty)
+        discount+=Number(cartItem.discount*cartItem.qty)
         dc+=Number(cartItem.deliveryCh)
     })
+
+
 
     return (
         <div>
             <Navbar/>
+            {console.log(cart,"inside")}
             {cart.length===0?<div className="showing flex justify-content-center p-1">
                 <h2 className="wishlist-heading">No items in cart</h2>
             </div>:""}
             <main className="cart-page centered py-5">
                 {cart.map(product=>(
-                    <div style={{width:"25rem"}} key={product.id} className="card flex horizontal-card margin-0">
+                    <div id="responsive-horizontal-card" style={{width:"25rem"}} key={product.id} className="card flex horizontal-card margin-0">
                     <div className="card-main-section flex">
                         <img src={product.image} className="product-img horizontal-img" alt="product-image"/>
                         <main className="middle horizontal-middle pl-1 pt-0-5">
                             <p className="para">{product.title}</p>
-                            <div className="small-1">iPhone 13 (256GB) - Midnight</div>
+                            {/* <div><button>-</button> 0 <button>+</button></div> */}
+                            <div>
+                            <button disabled={product.qty===1?true:false} className="quantity px-0-5" onClick={()=>qunatityHandler('decrement',product)}>-</button>
+                            {product.qty}
+                            <button className="quantity px-0-5" onClick={()=>qunatityHandler('increment',product)}>+</button>
+                            </div>
                             <div className="small-2">Rs.{product.price}/-
                             </div>
                             <div className="btn-section btn-end flex">

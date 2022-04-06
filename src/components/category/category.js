@@ -1,50 +1,41 @@
-import category1 from '../../assets/grocery.jpg'
-import category2 from '../../assets/mobile.png'
-import category3 from '../../assets/black.jpeg'
-import category4 from '../../assets/headphone-1.jpeg'
-import category5 from '../../assets/home.png'
-import category6 from '../../assets/appliances_1.jpg'
 import {Link} from 'react-router-dom'
+import { useEffect } from 'react'
+import axios from 'axios'
+import { useCategory } from '../../filter-context/category-context'
+import {useFilter} from '../../filter-context/filter-context'
 export const Category=()=>{
+
+    const {category,setCategory}=useCategory()
+
+    const {state,dispatch}=useFilter()
+
+
+    useEffect(()=>{
+        homeCategory()
+    },[])
+
+    const homeCategory= async ()=>{
+        try {
+            
+            const response=await axios.get('/api/categories')
+            setCategory(response.data.categories);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return(
         <main className="ecom-main px-5 py-3">
         <div className="home-categories">
-            <div className="categoies p-1">
-                <Link to="/products" className="category-links flex-col-center">
-                    <img src={category1} alt="category-image" className="category-img"/>
-                    <p className="category-text p-1">Grocery</p>
+            {category.map(item=>(
+                <div key={item.id} className="categoies p-1">
+                    {console.log(item.categoryName)}
+                <Link onClick={()=>dispatch({type:item.categoryName.toLowerCase()})} to="/products" className="category-links flex-col-center">
+                    <img src={item.image} alt="category-image" className="category-img"/>
+                    <p className="category-text p-1">{item.categoryName}</p>
                 </Link>
             </div>
-            <div className="categoies p-1">
-                <Link to='/products' className="category-links flex-col-center">
-                    <img src={category2} alt="category-image" className="category-img"/>
-                    <p className="category-text p-1">Mobiles</p>
-                </Link>
-            </div>
-            <div className="categoies p-1">
-                <Link to='/products' className="category-links flex-col-center">
-                    <img src={category3} alt="category-image" className="category-img"/>
-                    <p className="category-text p-1">Fashion</p>
-                </Link>
-            </div>
-            <div className="categoies p-1">
-                <Link to='/products' className="category-links flex-col-center">
-                    <img src={category4} alt="category-image" className="category-img"/>
-                    <p className="category-text p-1">Electronics</p>
-                </Link>
-            </div>
-            <div className="categoies p-1">
-                <Link to='/products' className="category-links flex-col-center">
-                    <img src={category5} alt="category-image" className="category-img"/>
-                    <p className="category-text p-1">Home</p>
-                </Link>
-            </div>
-            <div className="categoies p-1">
-                <Link to='/products' className="category-links flex-col-center">
-                    <img src={category6} alt="category-image" className="category-img"/>
-                    <p className="category-text p-1">Appliances</p>
-                </Link>
-            </div>
+            ))}
         </div>
         </main>
     )

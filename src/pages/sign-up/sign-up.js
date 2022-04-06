@@ -2,6 +2,7 @@ import './sign-up.css'
 import { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { Navbar } from '../../components/nav/nav'
 export const SignUp=()=>{
     const navigate=useNavigate()
 
@@ -19,7 +20,9 @@ export const SignUp=()=>{
     }
 
     return(
-        <section className="signup-section centered align-items">
+        <>
+        <Navbar/>
+        <section className="signup-section centered align-items ">
         <div className="signup-wrapper flex flex-direction-col align-items px-3 pb-4">
             <h1 className="mb-3">Signup</h1>
             <div className="pb-1">
@@ -56,5 +59,6 @@ export const SignUp=()=>{
             <div><Link className="new-account" to="/login">Already have an account </Link></div>
         </div>
     </section>
+    </>
     )
 }

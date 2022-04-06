@@ -70,3 +70,8 @@
 .space-between-cart{
     justify-content: space-between;
 }
+
+
+.quantity{
+    font-size: 1.5rem;
+}

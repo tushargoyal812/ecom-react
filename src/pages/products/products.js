@@ -10,6 +10,15 @@ import { useAuth } from '../../filter-context/auth-context'
 import { Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useWishlist } from '../../filter-context/wishlist-context'
+import { addToCartHandler } from '../../util-functions/add-to-cart'
+import {grocery} from '../../filter-functions/grocery'
+import {fashion} from '../../filter-functions/fashion'
+import { electronics } from '../../filter-functions/electronics'
+import { home } from '../../filter-functions/home'
+import { appliances } from '../../filter-functions/appliances'
+import { mobile } from '../../filter-functions/mobile'
+import { clearAll } from '../../filter-functions/clearAll'
+import { useCategory } from '../../filter-context/category-context'
 export const Products=()=>{
     const {data}=useAxios()
     const {state}=useFilter()
@@ -23,36 +32,15 @@ export const Products=()=>{
     const data5=priceRange(data4,state)
     const data6=rating(data5,state)
     const data7=categoryHandler(data6,state)
-    const compose=data7
+    const data8=clearAll(data7,state)
+    const compose=data8
 
     const [cartName,setCartName]=useState(false)
     const {setWishlist,setWishlistCount,wishlist,setIsItem}=useWishlist()
+    const {display,setDisplay}=useCategory()
+    // const navigate=useNavigate()
 
     
-    
-    const addToCartHandler= async (product)=>{
-        const token=localStorage.getItem("user")
-        console.log(cartName,"from handler");
-        if(token)
-        {
-            try {
-                const response = await axios.post(`/api/user/cart`,{
-                    product
-                },{
-                    headers: {
-                        authorization: token, // passing token as an authorization header
-                      },
-                }
-                );
-                setCart(response.data.cart)
-                setCartCount(count=>count+1)
-              } catch (error) {
-                console.log(error);
-              }
-        }else{
-            navigate('/login')
-        }
-    }
 
 
     const wishListHandler= async(product)=>{
@@ -75,18 +63,14 @@ export const Products=()=>{
             console.log(error);
         }
     }
-    
+
+
     return(
         <div>
         <Navbar/>
         <div className="product-main-sidebar ">
-            <Sidebar/>
+           <Sidebar/>
         <main className="product-main p-1">
-            <div>
-                <span id="hamburger" className="material-icons">
-                    menu
-                </span>
-            </div>
             <div className="showing p-2">
                 Showing All Products
             </div>
@@ -117,7 +101,7 @@ export const Products=()=>{
                            {product.fastDelivery?<div className="small-1">Fast Delivery</div>:<div className="small-1">3 days minimum</div>}
                        </main>
                        <div className="btn-section">
-                           {cart.some(cartProduct=>cartProduct.id===product.id)?<button onClick={()=>navigate('/cart')} className="cart-button">go to cart</button>:<button onClick={()=>addToCartHandler(product)} className="cart-button">add to cart</button>}
+                           {cart.some(cartProduct=>cartProduct.id===product.id)?<button onClick={()=>navigate('/cart')} className="cart-button">go to cart</button>:<button onClick={()=>addToCartHandler(product,setCart,setCartCount,navigate)} className="cart-button">add to cart</button>}
                        </div>
                    </div>
                </div>

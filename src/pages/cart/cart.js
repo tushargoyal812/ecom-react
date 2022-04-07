@@ -7,12 +7,12 @@ import {useWishlist} from '../../filter-context/wishlist-context'
 import { addToCartHandler } from "../../util-functions/add-to-cart"
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
+import { qunatityHandler } from "../../util-functions/qty-handler"
 
 
 export const Cart=()=>{
     const {cart,setCart,setCartCount}=useCart()
     const {setWishlist,setWishlistCount,wishlist}=useWishlist()
-    const navigate=useNavigate()
     console.log(cart,"from cart");
 
 
@@ -57,45 +57,6 @@ export const Cart=()=>{
     }
 
 
-    const qunatityHandler= async (type,product)=>{
-        const token=localStorage.getItem("user")
-        console.log(token);
-        if(type==='increment')
-        {
-            try{
-                const response=await axios.post(`/api/user/cart/${product._id}`,{
-                    action: {
-                      type: type
-                    }
-                  },{
-                    headers: {
-                      authorization: token, // passing token as an authorization header
-                    },
-                  })
-                  setCart(response.data.cart)
-            }catch(error){
-                console.log(error);
-            }
-        }else{
-            try{
-                const response=await axios.post(`/api/user/cart/${product._id}`,{
-                    action: {
-                      type: type
-                    }
-                  },{
-                    headers: {
-                      authorization: token, // passing token as an authorization header
-                    },
-                  })
-                  setCart(response.data.cart)
-            }catch(error){
-                console.log(error);
-            } 
-        }
-    }
-
-
-    console.log(cart,"cart item");
 
 
     let price=0
@@ -124,11 +85,10 @@ export const Cart=()=>{
                         <img src={product.image} className="product-img horizontal-img" alt="product-image"/>
                         <main className="middle horizontal-middle pl-1 pt-0-5">
                             <p className="para">{product.title}</p>
-                            {/* <div><button>-</button> 0 <button>+</button></div> */}
                             <div>
-                            <button disabled={product.qty===1?true:false} className="quantity px-0-5" onClick={()=>qunatityHandler('decrement',product)}>-</button>
+                            <button disabled={product.qty===1?true:false} className="quantity px-0-5" onClick={()=>qunatityHandler('decrement',product,setCart)}>-</button>
                             {product.qty}
-                            <button className="quantity px-0-5" onClick={()=>qunatityHandler('increment',product)}>+</button>
+                            <button className="quantity px-0-5" onClick={()=>qunatityHandler('increment',product,setCart)}>+</button>
                             </div>
                             <div className="small-2">Rs.{product.price}/-
                             </div>

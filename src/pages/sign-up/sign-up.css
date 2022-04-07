@@ -35,3 +35,18 @@ a{
 .signup-section{
     height: 70vh;
 }
+
+
+@media only screen and (max-width:400px)
+{
+    .signup-wrapper{
+        margin-top: 32rem;
+    }  
+}
+
+@media only screen and (max-width:300px)
+{
+    .signup-wrapper{
+        margin-top: 32rem;
+    }  
+}

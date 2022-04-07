@@ -3,7 +3,6 @@ import { useCart } from "../filter-context/cart-context";
 import { useNavigate } from "react-router-dom";
 export const addToCartHandler= async (product,setCart,setCartCount,navigate)=>{
     const token=localStorage.getItem("user")
-    console.log(token);
     if(token)
     {
         try {

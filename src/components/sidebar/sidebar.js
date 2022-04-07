@@ -1,5 +1,6 @@
 import { useCategory } from '../../filter-context/category-context';
 import { useFilter } from '../../filter-context/filter-context';
+import './sidebar.css'
 
 export const Sidebar=()=>{
 
@@ -70,11 +71,11 @@ export const Sidebar=()=>{
                 <h2 className="pb-0-5">rating</h2>
                 <input checked={state.rating!==5} min="1" max="5" list='ratings' value={state.rating} type="range" onChange={(e)=>dispatch({type:'ratings',payload:e.target.value})} className="p-1"/>
                 <datalist id="ratings">
-                    <option value="1"></option>
-                    <option value="2"></option>
-                    <option value="3"></option>
-                    <option value="4"></option>
-                    <option value="5"></option>
+                    <option label="1" value="1"></option>
+                    <option label="2" value="2"></option>
+                    <option label="3" value="3"></option>
+                    <option label="4" value="4"></option>
+                    <option label="5" value="5"></option>
                 </datalist>
             </div>
         </aside>

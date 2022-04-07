@@ -7,6 +7,8 @@ export const SignUp=()=>{
     const navigate=useNavigate()
 
     const [signUpData,setSignUpData]=useState({firstName:"",lastName:"",email:"",password:""})
+    const [visible,setVisible]=useState(true)
+    const [type,setType]=useState('password')
 
     const signUpHandler= async ()=>{
         try{
@@ -16,6 +18,17 @@ export const SignUp=()=>{
         }
         catch(error){
             console.log(error);
+        }
+    }
+
+    const showHandler=()=>{
+        if(visible)
+        {
+            setVisible(false)
+            setType("text")
+        }else{
+            setVisible(true)
+            setType("password")
         }
     }
 
@@ -45,13 +58,10 @@ export const SignUp=()=>{
             </div>
             <div className="pb-1">
             <label htmlFor="" className="passwaord-label">Password</label>
-            <div>
-                <input onChange={(e)=>setSignUpData({...signUpData,password:e.target.value})} type="password" className="signup-input px-3" />
+            <div className='password-wrapper'>
+                <input value={signUpData.password} name='password' onChange={(e)=>setSignUpData({...signUpData,password:e.target.value})} type={type} className="login-input px-3"/>
+                {visible?<span onClick={showHandler} class="material-icons eye">visibility_off</span>:<span onClick={showHandler}class="material-icons eye">remove_red_eye</span>}
             </div>
-            </div>
-            <div className="flex pb-1">
-                <input style={{padding: "2rem"}} type="checkbox" />
-                <div className="remember">I accept all Terms  Conditions</div>
             </div>
             <div className="mb-1 flex justify-content-center">
                 <button onClick={signUpHandler} className="btn basic signup-page-btn ecom-bg-blue">Create New Account</button>

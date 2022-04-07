@@ -68,11 +68,6 @@ export const Login=()=>{
                 {visible?<span onClick={showHandler} class="material-icons eye">visibility_off</span>:<span onClick={showHandler}class="material-icons eye">remove_red_eye</span>}
             </div>
             </div>
-            <div className="flex pb-1">
-                <input type="checkbox"/>
-                <div className="remember">Remember me</div>
-                <a className="ml-3" href="">Forgot Password?</a>
-            </div>
             <div className="ecom-login-btn mb-1 flex justify-content-center">
                 <div>
                 <button onClick={loginHandler} className="btn basic login-page-btn ecom-bg-blue">Login</button>

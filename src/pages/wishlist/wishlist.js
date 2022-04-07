@@ -3,12 +3,13 @@ import { useState } from "react"
 import { Navbar } from "../../components/nav/nav"
 import { useCart } from "../../filter-context/cart-context"
 import { useWishlist } from "../../filter-context/wishlist-context"
+import { qunatityHandler } from "../../util-functions/qty-handler"
 import './wishlist.css'
 
 export const Wishlist=()=>{
 
     const {wishlist,setWishlist,setWishlistCount,isItem,setIsItem}=useWishlist()
-    const {setCart,setCartCount}=useCart()
+    const {setCart,cart,setCartCount}=useCart()
 
 
     console.log(wishlist,"from wishlist");
@@ -29,8 +30,20 @@ export const Wishlist=()=>{
     }
 
 
-    const moveToCartHandler= async (product)=>{
+    const moveToCartHandler= async (product,id)=>{
         const token=localStorage.getItem("user")
+        if(cart.some(item=>item._id===id))
+        {
+            console.log("if chala");
+            qunatityHandler("increment",product,setCart)
+            const deleteResponse=await axios.delete(`/api/user/wishlist/${product._id}`,{
+                headers: {
+                  authorization: token, // passing token as an authorization header
+                },
+              })
+              setWishlist(deleteResponse.data.wishlist);
+              setWishlistCount(count=>count-1)
+        }else{   
         try{
             const response=await axios.post('/api/user/cart',{
                 product
@@ -51,10 +64,8 @@ export const Wishlist=()=>{
         }catch(error){
             console.log(error);
         }
+        }
     }
-
-
-
 
     return(
         <div>
@@ -81,7 +92,7 @@ export const Wishlist=()=>{
                         </div>
                     </main>
                     <div className="btn-section">
-                        <button onClick={()=>moveToCartHandler(product)} className="cart-button">
+                        <button onClick={()=>moveToCartHandler(product,product._id)} className="cart-button">
                             Move to Cart
                         </button>
                     </div>

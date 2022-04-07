@@ -13,7 +13,7 @@ export const Navbar=()=>{
 
     const logoutHandler=()=>{
         localStorage.removeItem("user")
-        // setAuth(false)
+        setAuth(false)
     }
 
     const hamburgerHandler=()=>{
@@ -46,12 +46,12 @@ export const Navbar=()=>{
                         {auth?<button onClick={logoutHandler} className="login-btn ecom-bg-white ecom-blue">Log out</button>:<button className="login-btn ecom-bg-white ecom-blue">Login</button>}
                     </Link>
                 </div>
-                <Link to="/wishlist" className="e-com-nav-icons anchor-style pointer">
+                <Link to={auth?"/wishlist":"/login"} className="e-com-nav-icons anchor-style pointer">
                     <i className="fas fa-heart heart-icon ecom-white">
                         <div className="ecom-badge">{wishlistCount}</div>
                     </i>
                 </Link>
-                <Link to="/cart" className="e-com-nav-icons anchor-style pointer">
+                <Link to={auth?"/cart":"/login"} className="e-com-nav-icons anchor-style pointer">
                     <i className="fas fa-shopping-cart cart-icon ecom-white">
                         <div className="ecom-badge">{cartCount}</div>
                         <span className="cart-text ecom-white">cart</span>

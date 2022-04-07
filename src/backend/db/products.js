@@ -11,13 +11,14 @@ export const products = [{
     _id: uuid(),
     title: "Apple Series",
     deal: "Best Deals",
-    price: "96000",
+    price: 96000,
+    category:"mobile",
     discount:2000,
     deliveryCh:100,
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    mobile: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqjtd3k0/mobile/o/4/x/c11-2021-rmx3231-realme-original-imag4j4yrdt7d9cj.jpeg?q=70'
   },
@@ -26,13 +27,14 @@ export const products = [{
     title: "Samsung Series",
     deal: "Best Deals",
     price: "3000",
+    category:"mobile",
     discount:200,
     deliveryCh:22,
     ratings:4,
     inStock:true,
     fastDelivery:true,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0igvww0/mobile/n/h/4/-original-imagcahnwypwuaac.jpeg?q=70'
   },
   {
@@ -40,13 +42,14 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "1000",
+    category:"mobile",
     discount:50,
     deliveryCh:23,
     ratings:5,
     inStock:true,
     fastDelivery:true,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kn22m4w0/mobile/9/k/s/galaxy-f12-sm-f127glbiins-samsung-original-imagftmhhhvghq7w.jpeg?q=70'
   },
   {
@@ -54,13 +57,14 @@ export const products = [{
     title: "Samsung Series",
     deal: "Best Deals",
     price: "32000",
+    category:"mobile",
     discount:1000,
     deliveryCh:100,
     ratings:3,
     inStock:true,
     fastDelivery:true,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
@@ -68,13 +72,14 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "11000",
+    category:"mobile",
     discount:500,
     deliveryCh:70,
     ratings:5,
     inStock:true,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kmwcuq80/mobile/7/p/5/galaxy-m12-galaxy-m12-samsung-original-imagfzuhqtn5kpvj.jpeg?q=70'
   },
   {
@@ -82,13 +87,14 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "12000",
+    category:"mobile",
     discount:220,
     deliveryCh:100,
     ratings:2,
     inStock:true,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqqykcw0/mobile/j/5/7/galaxy-f22-sm-e225flbdins-samsung-original-imag4z99fp4qdfby.jpeg?q=70'
   },
   {
@@ -96,13 +102,14 @@ export const products = [{
     title: "Samsung Series",
     deal: "Best Deals",
     price: "6000",
+    category:"mobile",
     discount:600,
     deliveryCh:90,
     ratings:1,
     inStock:true,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
@@ -110,12 +117,13 @@ export const products = [{
     title: "Apple series",
     deal: "Best Deals",
     price: "25000",
+    category:"mobile",
     discount:2000,
     deliveryCh:100,
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kmwcuq80/mobile/7/p/5/galaxy-m12-galaxy-m12-samsung-original-imagfzuhqtn5kpvj.jpeg?q=70'
   },
   {
@@ -123,13 +131,14 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "24000",
+    category:"mobile",
     discount:1500,
     deliveryCh:78,
     ratings:4,
     inStock:false,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqqykcw0/mobile/j/5/7/galaxy-f22-sm-e225flbdins-samsung-original-imag4z99fp4qdfby.jpeg?q=70'
   },
   {
@@ -137,13 +146,14 @@ export const products = [{
     title: "Samsung Series",
     deal: "Best Deals",
     price: "9000",
+    category:"mobile",
     discount:700,
     deliveryCh:40,
     ratings:2,
     inStock:false,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0sgyvk0/mobile/k/x/c/-original-imagcg22czc3ggvw.jpeg?q=70'
   },
   {
@@ -151,13 +161,14 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "28000",
+    category:"mobile",
     discount:2000,
     deliveryCh:100,
     ratings:4,
     inStock:false,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kmwcuq80/mobile/7/p/5/galaxy-m12-galaxy-m12-samsung-original-imagfzuhqtn5kpvj.jpeg?q=70'
   },
   {
@@ -165,13 +176,14 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "1000",
+    category:"mobile",
     discount:200,
     deliveryCh:100,
     ratings:1,
     inStock:false,
     fastDelivery:false,
     android: true,
-    ios: false,
+    mobile: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqqykcw0/mobile/j/5/7/galaxy-f22-sm-e225flbdins-samsung-original-imag4z99fp4qdfby.jpeg?q=70'
   },
   {
@@ -179,13 +191,14 @@ export const products = [{
     title: "Apple series",
     deal: "Best Deals",
     price: "8000",
+    category:"mobile",
     discount:230,
     deliveryCh:70,
     ratings:2,
     inStock:false,
     fastDelivery:true,
-    ios: true,
-    android: false,
+    mobile: true,
+    android: true,
     image: 'https://rukminim2.flixcart.com/image/312/312/l0igvww0/mobile/n/h/4/-original-imagcahnwypwuaac.jpeg?q=70'
   },
   {
@@ -199,7 +212,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://www.refrigeratedfrozenfood.com/ext/resources/RFF/AYO-Foods/Rudis/RM-Sourdough.jpg?t=1616526838&width=900'
   },
@@ -214,7 +227,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://i5.walmartimages.com/asr/ca5bcbca-62fb-42c5-ab32-16d019390c6c.c1944c7cc4f6eeb667ed5149c7e17caf.jpeg'
   },
@@ -229,7 +242,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://www.united-food-brands.com/wp-content/uploads/2019/05/Shires_pastries-min.png'
   },{
@@ -243,7 +256,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://m.media-amazon.com/images/I/41fAkhF7UtL.jpg'
   },{
@@ -257,7 +270,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://m.media-amazon.com/images/I/81t174D6pgL._SL1500_.jpg'
   },
@@ -272,7 +285,7 @@ export const products = [{
     ratings:2,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://www.jiomart.com/images/product/600x600/491472709/good-life-refined-sunflower-oil-5-l-product-images-o491472709-p491472709-0-202203170807.jpg'
   },
@@ -287,7 +300,7 @@ export const products = [{
     ratings:2,
     inStock:false,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/280/280/kixgtjk0/flour/v/r/w/500-wheat-maida-1-maida-organic-tattva-original-imafym8cchphahk9.jpeg?q=70'
   },
@@ -302,7 +315,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/280/280/kohigsw0/flour/5/q/5/atta-with-multigrains-multigrain-flour-pillsbury-original-imag2xgh4gggvzx5.jpeg?q=70'
   },
@@ -317,7 +330,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/280/280/kqzj7gw0/rice/p/l/k/white-biryani-na-basmati-rice-pouch-daawat-original-imag4vkmbfnv4azg.jpeg?q=70'
   },
@@ -332,7 +345,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    grocery: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/280/280/klscivk0/rice/r/m/p/white-regular-choice-basmati-rice-vacuum-pack-india-gate-original-imagytzcjrdgk3je.jpeg?q=70'
   },
@@ -347,7 +360,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kkfrjww0/t-shirt/h/1/t/l-t312-cgblwh-new-eyebogler-original-imafzs5hrjgzsfpr.jpeg?q=50'
   },
@@ -362,7 +375,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/khmbafk0-0/t-shirt/w/j/s/xs-t322-blwh-seven-rocks-original-imafxhagtyj2xvpn.jpeg?q=50'
   },
@@ -377,7 +390,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kyrlifk0/t-shirt/0/u/s/l-tdgyblhenful-d37-tripr-original-imagax9x6pkgwwg9.jpeg?q=50'
   },
@@ -392,7 +405,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/k0zlsi80/t-shirt/x/g/z/xl-9329653-roadster-original-imafkktusdxdm7gd.jpeg?q=50'
   },
@@ -407,7 +420,7 @@ export const products = [{
     ratings:4,
     inStock:false,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kfoapow0-0/shirt/1/l/t/m-c1276-gespo-original-imafw2gqdztqdkyu.jpeg?q=50'
   },
@@ -422,7 +435,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kgb5rbk0-0/t-shirt/w/6/n/l-ss20-sp28-scott-international-original-imafwjzdh26cvfx9.jpeg?q=50'
   },
@@ -437,7 +450,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kgb5rbk0-0/t-shirt/z/i/j/s-ss20-sp22-scott-international-original-imafwjzdumkk7zdu.jpeg?q=50'
   },
@@ -452,7 +465,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kiqbma80-0/shoe/p/p/d/gc-1759115-39-woodland-camel-original-imafygsbu4ckhdfj.jpeg?q=50'
   },
@@ -467,7 +480,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kuvkcy80/sandal/h/w/a/8-xxx-01-black-red-8-sfr-black-red-original-imag7wamy9ynjqef.jpeg?q=50'
   },
@@ -482,7 +495,7 @@ export const products = [{
     ratings:2,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    fashion: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/611/733/kbtp0280/shoe/c/k/k/gm1251-43-good-minar-black-original-imaft34ej4zx2z63.jpeg?q=50'
   },
@@ -497,7 +510,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/ki7qw7k0/smartwatch/e/p/b/rma207-android-realme-original-imafy2fxtuzghm5m.jpeg?q=70'
   },
@@ -512,7 +525,7 @@ export const products = [{
     ratings:1,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/k8ytaq80/smartwatch/d/g/8/gsw5-android-ios-gionee-original-imafquuuydevhjdy.jpeg?q=70'
   },
@@ -527,7 +540,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/mouse/b/j/g/logitech-b175-original-imaer9wataetgtxc.jpeg?q=70'
   },
@@ -542,7 +555,7 @@ export const products = [{
     ratings:2,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/kjn6qvk0/smartwatch/d/s/h/1-65-a2021-android-ios-huami-original-imafz6aqjej62grc.jpeg?q=70'
   },
@@ -557,7 +570,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/ksdjma80/headphone/o/f/c/airdopes-131-airdopes-138-boat-original-imag5yz96jehyqrg.jpeg?q=70'
   },
@@ -572,7 +585,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/krayqa80/headphone/x/9/r/rma2010-realme-original-imag54ey5mxggzcy.jpeg?q=70'
   },
@@ -587,7 +600,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/ksnjp8w0/headphone/e/d/l/rockerz-255f-rockerz-255-boat-original-imag66ckxprfrsz2.jpeg?q=70'
   },
@@ -602,7 +615,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/ksw4ccw0/headphone/w/g/r/rockerz-450-boat-original-imag6cqqh49wjfy5.jpeg?q=70'
   },
@@ -617,7 +630,7 @@ export const products = [{
     ratings:2,
     inStock:false,
     fastDelivery:true,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/juwzf680/headphone-refurbished/7/h/k/z-c100si-jbl-original-imaffxja5vmgwudz.jpeg?q=70'
   },
@@ -632,7 +645,7 @@ export const products = [{
     ratings:2,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    electronics: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/kyuge4w0/headphone/n/k/f/-original-imagazgucguvptdf.jpeg?q=70'
   },
@@ -647,7 +660,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/jd4u5jk0/bar-stool-chair/y/a/s/black-semi-aniline-leather-m-351-black-da-urban-black-original-imafff4h9dsfx5hj.jpeg?q=70'
   },
@@ -662,7 +675,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/jingcy80/coffee-table/u/m/g/rosewood-sheesham-9yiyu876-sublime-arts-walnut-brown-original-imaezfkj9pjtuep3.jpeg?q=70'
   },
@@ -677,7 +690,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/jmz7csw0/recliner/f/7/7/brown-pvc-24002-woodness-original-imaf9rzvrrav8phf.jpeg?q=70'
   },
@@ -692,7 +705,7 @@ export const products = [{
     ratings:5,
     inStock:false,
     fastDelivery:false,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/k30h8y80/living-room-chair/j/d/e/multicolor-pp-stylish-modern-furniture-patches-chair-with-original-imafm63gcaauad7u.jpeg?q=70'
   },
@@ -707,7 +720,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/jlb6v0w0/home-temple/n/b/g/pooja-mandir-marusthalee-original-imaf8gk4jzfdhv22.jpeg?q=70'
   },
@@ -722,7 +735,7 @@ export const products = [{
     ratings:3,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/150/150/jwi518w0/kitchen-trolley/7/r/y/stainless-steel-3-tier-fruits-vegetable-trolley-3d-metro-original-imafh5ytzq5qphfv.jpeg?q=70'
   },
@@ -737,7 +750,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/kpvivm80/lunch-box/h/t/o/premium-lunch-box-with-bottle-black-3-stainless-steel-containers-original-imag4yhuzapzvxg3.jpeg?q=70'
   },
@@ -752,7 +765,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    home: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/ktd9mkw0/lunch-box/j/j/l/1470-teso-lunch-box-with-bottle-blue-pro-oliveware-4-original-imag6qe2auyg4ntb.jpeg?q=70'
   },
@@ -767,7 +780,7 @@ export const products = [{
     ratings:5,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/jqv8ia80/mixer-grinder-juicer/w/n/6/butterfly-arrow-original-imafcz43zxwekpzc.jpeg?q=70'
   },
@@ -782,7 +795,7 @@ export const products = [{
     ratings:3,
     inStock:false,
     fastDelivery:true,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/kyj0vbk0/induction-cook-top/h/0/5/-original-imagaqsng6rtrkyh.jpeg?q=70'
   },
@@ -797,7 +810,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/k47cgi80pkrrdj/electric-kettle-refurbished/4/g/z/u-aroma-skt-180-ase-1-8-singer-original-imafn8yaykfn8pnh.jpeg?q=70'
   },
@@ -812,7 +825,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/kddf6a80/water-geyser/m/3/t/instanio-prime-3000-havells-15-original-imafua9vrycxcg4h.jpeg?q=70'
   },
@@ -827,7 +840,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/ks4yz680/room-heater/q/x/f/ck-ms-moonstruck-original-imag5r78jzu4h67z.jpeg?q=70'
   },
@@ -842,7 +855,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:false,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kqidx8w0/television/o/h/9/43fa0a00-oneplus-original-imag4gy9perzvrdv.jpeg?q=70'
   },
@@ -857,7 +870,7 @@ export const products = [{
     ratings:4,
     inStock:true,
     fastDelivery:true,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/312/312/kr2e3680/television/9/l/o/l43m6-ei-mi-original-imag4xqrfhrewu2c.jpeg?q=70'
   },
@@ -872,7 +885,7 @@ export const products = [{
     ratings:4,
     inStock:false,
     fastDelivery:true,
-    ios: true,
+    Appliances: true,
     android: false,
     image: 'https://rukminim2.flixcart.com/image/612/612/kpydrbk0/coffee-maker/9/m/k/brewster-coffee-maker-14327-pigeon-original-imag42nzqvmbsp5s.jpeg?q=70'
   },
@@ -895,6 +908,7 @@ export const products = [{
     title: "Samsung Series",
     deal: "Best Deals",
     price: "69000",
+    category:"mobile",
     discount:2000,
     deliveryCh:79,
     ratings:3,
@@ -909,6 +923,7 @@ export const products = [{
     title: "Apple series",
     deal: "Best Deals",
     price: "3000",
+    category:"mobile",
     discount:60,
     deliveryCh:30,
     ratings:4,
@@ -923,6 +938,7 @@ export const products = [{
     title: "Moto Series",
     deal: "Best Deals",
     price: "74000",
+    category:"mobile",
     discount:2000,
     deliveryCh:60,
     ratings:2,
@@ -937,6 +953,7 @@ export const products = [{
     title: "Apple series",
     deal: "Best Deals",
     price: "39000",
+    category:"mobile",
     discount:1400,
     deliveryCh:91,
     ratings:3,

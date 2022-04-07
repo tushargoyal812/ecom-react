@@ -6,6 +6,7 @@ import { Login } from "./pages/login/login";
 import { SignUp } from "./pages/sign-up/sign-up";
 import { Wishlist } from "./pages/wishlist/wishlist";
 import {Routes,Route} from 'react-router-dom'
+import { FilteredCategory } from "./pages/filtered-category/filtered-category";
 
 function App() {
   return (

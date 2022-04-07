@@ -3,20 +3,36 @@ import {Link} from 'react-router-dom'
 import { useCart } from '../../filter-context/cart-context'
 import { useAuth } from '../../filter-context/auth-context'
 import { useWishlist } from '../../filter-context/wishlist-context'
+import { useCategory } from '../../filter-context/category-context'
 export const Navbar=()=>{
 
     const {cartCount}=useCart()
     const {auth,setAuth}=useAuth()
     const {wishlistCount}=useWishlist()
+    const {display,setDisplay}=useCategory()
 
     const logoutHandler=()=>{
         localStorage.removeItem("user")
         // setAuth(false)
     }
 
+    const hamburgerHandler=()=>{
+        if(display==="block")
+        {
+            setDisplay("none")
+        }else{
+            setDisplay("block")
+        }
+    }
+
     return(
         <header className="e-com-header">
         <nav className="e-com-navbar shop-nav ecom-bg-blue">
+        <div onClick={()=>hamburgerHandler()}>
+                <span style={{color:"black"}} id="hamburger" className="material-icons">
+                    menu
+                </span>
+            </div>
             <Link to="/">
                 <div className="ecom-white">ShopShip</div>
             </Link>

@@ -12,10 +12,20 @@ export const reducerFunc=(state,action)=>{
             return {...state,priceRange:action.payload}
         case 'ratings':
             return {...state,rating:action.payload}
-        case 'ios':
-            return {...state,category:{...state.category,ios:!state.category.ios}}
-        case 'android':
-            return {...state,category:{...state.category,android:!state.category.android}}
+        case 'grocery':
+            return {...state,category:{...state.category,grocery:!state.category.grocery}}
+        case 'mobile':
+            return {...state,category:{...state.category,mobile:!state.category.mobile}}
+        case 'home':
+            return {...state,category:{...state.category,home:!state.category.home}}
+        case 'electronics':
+            return {...state,category:{...state.category,electronics:!state.category.electronics}}
+        case 'Appliances':
+            return {...state,category:{...state.category,Appliances:!state.category.Appliances}}
+        case 'fashion':
+            return {...state,category:{...state.category,fashion:!state.category.fashion}}
+        case 'clear-all':
+            return {...state,sorting:null,isInStock:false,fastDelivery:false,priceRange:50000,rating:5,category:{mobile:false,grocery:false,fashion:false,home:false,electronics:false,Appliances:false}}    
         default:
             return state;
     }

@@ -5,7 +5,7 @@
 .login-wrapper{
     width: 30rem;
     box-shadow: 0 0 8px var(--shadow);
-    margin-top: 8rem;
+    margin-top: 15rem;
 }
 
 .login-input{
@@ -43,4 +43,9 @@ a{
     position: absolute;
     right: 1rem;
     cursor: pointer;
+}
+
+.ecom-login-btn{
+    flex-direction: column;
+    gap: 1rem;
 }

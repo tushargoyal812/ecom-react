@@ -9,7 +9,7 @@ const {data}=useAxios()
     return(
         <div className="bottom-card">
             {data.map(item=>(
-                <Link to='/products' className="bottom-card-links">
+                <Link key={item.id} to='/products' className="bottom-card-links">
                 <div className="card">
                     <div className="card-main-section">
                         <img src={item.image} className="product-img" alt="product-image"/>

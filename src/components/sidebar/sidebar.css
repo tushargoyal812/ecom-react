@@ -1,5 +1,19 @@
 #ratings{
     display: block;
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
+}
+
+.sidebar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.align-left{
+    align-items: flex-start;
+}
+
+.rating-slider{
+    width: 12rem;
 }

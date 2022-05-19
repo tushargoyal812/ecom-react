@@ -34,7 +34,7 @@ export const Navbar=()=>{
                 </span>
             </div>
             <Link to="/">
-                <div className="ecom-white">ShopShip</div>
+                <div className="ecom-white">ShopCludes</div>
             </Link>
             <ul>
                 <Link className="e-com-nav-items" to="/products">Products</Link>
@@ -48,12 +48,12 @@ export const Navbar=()=>{
                 </div>
                 <Link to={auth?"/wishlist":"/login"} className="e-com-nav-icons anchor-style pointer">
                     <i className="fas fa-heart heart-icon ecom-white">
-                        <div className="ecom-badge">{wishlistCount}</div>
+                        {auth&&<div className="ecom-badge">{wishlistCount}</div>}
                     </i>
                 </Link>
                 <Link to={auth?"/cart":"/login"} className="e-com-nav-icons anchor-style pointer">
                     <i className="fas fa-shopping-cart cart-icon ecom-white">
-                        <div className="ecom-badge">{cartCount}</div>
+                        {auth&&<div className="ecom-badge">{cartCount}</div>}
                         <span className="cart-text ecom-white">cart</span>
                     </i>
                 </Link>

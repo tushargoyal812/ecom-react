@@ -8,17 +8,17 @@ import { addToCartHandler } from "../../util-functions/add-to-cart"
 import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 import { qunatityHandler } from "../../util-functions/qty-handler"
+import { useState } from "react"
 
 
 export const Cart=()=>{
     const {cart,setCart,setCartCount}=useCart()
     const {setWishlist,setWishlistCount,wishlist}=useWishlist()
-    console.log(cart,"from cart");
+    const [disableBtn,setDisableBtn]=useState(false)
 
 
     const removeFromCartHandler= async (product)=>{
         const token=localStorage.getItem("user")
-        console.log(product._id,product.id,"product");
         try{
             const response=await axios.delete(`/api/user/cart/${product._id}`,{
                 headers: {
@@ -27,7 +27,6 @@ export const Cart=()=>{
             })
             setCart(response.data.cart);
             setCartCount(cartCount=>cartCount-1)
-            console.log(response,"remove from cart");
         }catch(error){
             console.log(error);
         }
@@ -69,12 +68,19 @@ export const Cart=()=>{
         dc+=Number(cartItem.deliveryCh)
     })
 
-
-
+    const quantityBtnHandler=async(str,product)=>{
+        setDisableBtn(true)
+        if(product.qty<=1&&str==='decrement')
+        {
+            return;
+        }
+    await qunatityHandler(str,product,setCart)
+    setDisableBtn(false)
+    }
+    
     return (
         <div>
             <Navbar/>
-            {console.log(cart,"inside")}
             {cart.length===0?<div className="showing flex justify-content-center p-1">
                 <h2 className="wishlist-heading">No items in cart</h2>
             </div>:""}
@@ -86,9 +92,9 @@ export const Cart=()=>{
                         <main className="middle horizontal-middle pl-1 pt-0-5">
                             <p className="para">{product.title}</p>
                             <div>
-                            <button disabled={product.qty===1?true:false} className="quantity px-0-5" onClick={()=>qunatityHandler('decrement',product,setCart)}>-</button>
+                            <button disabled={product.qty===1||disableBtn} className="quantity px-0-5" onClick={()=>quantityBtnHandler('decrement',product)}>-</button>
                             {product.qty}
-                            <button className="quantity px-0-5" onClick={()=>qunatityHandler('increment',product,setCart)}>+</button>
+                            <button  className="quantity px-0-5" onClick={()=>quantityBtnHandler('increment',product)}>+</button>
                             </div>
                             <div className="small-2">Rs.{product.price}/-
                             </div>

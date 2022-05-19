@@ -2,6 +2,7 @@
 // import {useEffect,useState} from 'react'
 import {Link} from 'react-router-dom'
 import { useAxios } from '../../useAxios/useAxios'
+import './home-card.css'
 export const HomeCard=()=>{
 
 const {data}=useAxios()

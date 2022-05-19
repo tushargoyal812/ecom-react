@@ -14,13 +14,11 @@ import { useState } from "react"
 export const Cart=()=>{
     const {cart,setCart,setCartCount}=useCart()
     const {setWishlist,setWishlistCount,wishlist}=useWishlist()
-    console.log(cart,"from cart");
     const [disableBtn,setDisableBtn]=useState(false)
 
 
     const removeFromCartHandler= async (product)=>{
         const token=localStorage.getItem("user")
-        console.log(product._id,product.id,"product");
         try{
             const response=await axios.delete(`/api/user/cart/${product._id}`,{
                 headers: {
@@ -29,7 +27,6 @@ export const Cart=()=>{
             })
             setCart(response.data.cart);
             setCartCount(cartCount=>cartCount-1)
-            console.log(response,"remove from cart");
         }catch(error){
             console.log(error);
         }

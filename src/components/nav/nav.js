@@ -16,23 +16,9 @@ export const Navbar=()=>{
         setAuth(false)
     }
 
-    const hamburgerHandler=()=>{
-        if(display==="block")
-        {
-            setDisplay("none")
-        }else{
-            setDisplay("block")
-        }
-    }
-
     return(
         <header className="e-com-header">
         <nav className="e-com-navbar shop-nav ecom-bg-blue">
-        <div onClick={()=>hamburgerHandler()}>
-                <span style={{color:"black"}} id="hamburger" className="material-icons">
-                    menu
-                </span>
-            </div>
             <Link to="/">
                 <div className="ecom-white">ShopCludes</div>
             </Link>

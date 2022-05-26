@@ -25,6 +25,7 @@
 .product-cards{
     border-radius: 0rem;
     box-shadow: -5px 5px 5px #cbd5e1;
+    width: 13rem;
 }
 
 .cart-button{
@@ -71,8 +72,8 @@
 
 #hamburger{
     display: none;
-    position: fixed;
-    z-index: 5;
+    /* position: fixed; */
+    /* z-index: 5; */
 }
 
 .gray-cart:hover{
@@ -83,11 +84,16 @@
 {
     .product-main{
         grid-column: 1 / 3;
-        margin-top: 8rem;
+        margin-top: 0;
     }
     #hamburger{
         display: block;
-        position: fixed;
+        margin-left: 0.5rem;
+    }
+    .hamburger-wrapper{
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 13.5rem;
     }
     .responsive-product-sidebar{
         display: block;
@@ -97,6 +103,6 @@
     }
     .product-sidebar{
         display: none;
-        margin-top: 8rem;
+        margin-top: 0;
     }
 }   

@@ -6,24 +6,17 @@ import { Sidebar } from '../../components/sidebar/sidebar'
 import { useFilter } from '../../filter-context/filter-context'
 import {highToLow,lowToHigh,inStock,fastDelivery,priceRange,rating,categoryHandler} from '../../filter-functions/index'
 import { useCart } from '../../filter-context/cart-context'
-import { useAuth } from '../../filter-context/auth-context'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useWishlist } from '../../filter-context/wishlist-context'
 import { addToCartHandler } from '../../util-functions/add-to-cart'
-import {grocery} from '../../filter-functions/grocery'
-import {fashion} from '../../filter-functions/fashion'
-import { electronics } from '../../filter-functions/electronics'
-import { home } from '../../filter-functions/home'
-import { appliances } from '../../filter-functions/appliances'
-import { mobile } from '../../filter-functions/mobile'
 import { clearAll } from '../../filter-functions/clearAll'
 import { useCategory } from '../../filter-context/category-context'
+import { hamburgerHandler } from '../../util-functions/hamburger-handler'
 export const Products=()=>{
     const {data}=useAxios()
     const {state}=useFilter()
     const {cart,setCart,setCartCount}=useCart()
-    const {auth}=useAuth()
     const navigate=useNavigate()
     const data1=highToLow(data,state)
     const data2=lowToHigh(data1,state)
@@ -38,10 +31,6 @@ export const Products=()=>{
     const [cartName,setCartName]=useState(false)
     const {setWishlist,setWishlistCount,wishlist,setIsItem}=useWishlist()
     const {display,setDisplay}=useCategory()
-    // const navigate=useNavigate()
-
-    
-
 
     const wishListHandler= async(product)=>{
         const wishlistToken=localStorage.getItem("user")
@@ -52,7 +41,7 @@ export const Products=()=>{
                 product
             },{
                 headers: {
-                    authorization: wishlistToken, // passing token as an authorization header
+                    authorization: wishlistToken,
                   },
             })
             setWishlist(wishlistResponse.data.wishlist);
@@ -69,6 +58,11 @@ export const Products=()=>{
         <div>
         <Navbar/>
         <div className="product-main-sidebar ">
+        <div className='hamburger-wrapper' onClick={()=>hamburgerHandler(display,setDisplay)}>
+                <span style={{color:"black"}} id="hamburger" className="material-icons">
+                    menu
+                </span>
+            </div>
            <Sidebar/>
         <main className="product-main p-1">
             <div className="showing p-2">
@@ -78,9 +72,6 @@ export const Products=()=>{
                 {compose.map(product=>(
                    <div key={product.id} className="card product-cards">
                    <div className="badge-section"></div>
-                   {/* <div onClick={()=>wishListHandler(product)}>
-                    {wishlist.some(wishProduct=>wishProduct.id===product.id)?<i className="far fa-heart like-cart"></i>:<i className="far fa-heart like-cart gray-cart"></i>}
-                   </div> */}
                    {wishlist.some(wishProduct=>wishProduct.id===product.id)?<div onClick={()=>navigate('/wishlist')}>
                    <i className="far fa-heart like-cart"></i>
                    </div>:<div onClick={()=>wishListHandler(product)}>

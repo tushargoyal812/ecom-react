@@ -1,12 +1,9 @@
 import { Navbar } from "../../components/nav/nav"
 import './cart.css'
 import '../wishlist/wishlist.css'
-import mobile from '../../assets/mobile.png'
 import { useCart } from "../../filter-context/cart-context"
 import {useWishlist} from '../../filter-context/wishlist-context'
-import { addToCartHandler } from "../../util-functions/add-to-cart"
 import axios from "axios"
-import {useNavigate} from 'react-router-dom'
 import { qunatityHandler } from "../../util-functions/qty-handler"
 import { useState } from "react"
 
@@ -22,7 +19,7 @@ export const Cart=()=>{
         try{
             const response=await axios.delete(`/api/user/cart/${product._id}`,{
                 headers: {
-                    authorization: token, // passing token as an authorization header
+                    authorization: token, 
                   },
             })
             setCart(response.data.cart);
@@ -43,7 +40,7 @@ export const Cart=()=>{
                     product
                 },{
                   headers: {
-                    authorization: token, // passing token as an authorization header
+                    authorization: token,
                   },
                 })
                 setWishlist(response.data.wishlist);
@@ -54,8 +51,6 @@ export const Cart=()=>{
               }
         }
     }
-
-
 
 
     let price=0

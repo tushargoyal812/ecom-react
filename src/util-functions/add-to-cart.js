@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCart } from "../filter-context/cart-context";
 import { useNavigate } from "react-router-dom";
-export const addToCartHandler= async (product,setCart,setCartCount,navigate)=>{
+export const addToCartHandler= async (product,setCart,setCartCount,navigate,setShowToast)=>{
     const token=localStorage.getItem("user")
     if(token)
     {

@@ -12,8 +12,6 @@ export const Wishlist=()=>{
     const {setCart,cart,setCartCount}=useCart()
 
 
-    console.log(wishlist,"from wishlist");
-
     const removeWishlistHandler=async(product)=>{
         const token=localStorage.getItem("user")
         try{
@@ -38,7 +36,7 @@ export const Wishlist=()=>{
             qunatityHandler("increment",product,setCart)
             const deleteResponse=await axios.delete(`/api/user/wishlist/${product._id}`,{
                 headers: {
-                  authorization: token, // passing token as an authorization header
+                  authorization: token,
                 },
               })
               setWishlist(deleteResponse.data.wishlist);
@@ -49,14 +47,14 @@ export const Wishlist=()=>{
                 product
             },{
                 headers: {
-                  authorization: token, // passing token as an authorization header
+                  authorization: token,
                 }
               })
               setCart(response.data.cart);
               setCartCount(count=>count+1)
               const deleteResponse=await axios.delete(`/api/user/wishlist/${product._id}`,{
                 headers: {
-                  authorization: token, // passing token as an authorization header
+                  authorization: token,
                 },
               })
               setWishlist(deleteResponse.data.wishlist);
@@ -69,7 +67,6 @@ export const Wishlist=()=>{
 
     return(
         <div>
-            <Navbar/>
             <div className="showing flex justify-content-center p-1">
                 <h2 className="wishlist-heading">My Wishlist</h2>
             </div>

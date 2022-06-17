@@ -51,7 +51,6 @@ export const Login=()=>{
 
     return(
         <>
-        <Navbar/>
         <section className="login-section centered align-items">
         <div className="login-wrapper flex flex-direction-col align-items px-3 pb-4">
             <h1 className="mb-3">Login</h1>

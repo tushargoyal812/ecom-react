@@ -1,5 +1,3 @@
-import {Navbar} from '../../components/nav/nav'
-import { useState } from 'react'
 import './products.css'
 import { useAxios } from '../../useAxios/useAxios'
 import { Sidebar } from '../../components/sidebar/sidebar'
@@ -13,6 +11,7 @@ import { addToCartHandler } from '../../util-functions/add-to-cart'
 import { clearAll } from '../../filter-functions/clearAll'
 import { useCategory } from '../../filter-context/category-context'
 import { hamburgerHandler } from '../../util-functions/hamburger-handler'
+import { searchHandler } from '../../filter-functions/search'
 export const Products=()=>{
     const {data}=useAxios()
     const {state}=useFilter()
@@ -26,37 +25,38 @@ export const Products=()=>{
     const data6=rating(data5,state)
     const data7=categoryHandler(data6,state)
     const data8=clearAll(data7,state)
-    const compose=data8
+    const compose=searchHandler(data8,state)
 
-    const [cartName,setCartName]=useState(false)
-    const {setWishlist,setWishlistCount,wishlist,setIsItem}=useWishlist()
+    const {setWishlist,setWishlistCount,wishlist}=useWishlist()
     const {display,setDisplay}=useCategory()
 
     const wishListHandler= async(product)=>{
         const wishlistToken=localStorage.getItem("user")
-        console.log(product,"wishlist product");
-        console.log(wishlistToken,"wishlist token");
-        try{
-            const wishlistResponse=await axios.post('/api/user/wishlist',{
-                product
-            },{
-                headers: {
-                    authorization: wishlistToken,
-                  },
-            })
-            setWishlist(wishlistResponse.data.wishlist);
-            setWishlistCount(count=>count+1)
-        }
-        catch(error)
+        if(wishlistToken)
         {
-            console.log(error);
+            try{
+                const wishlistResponse=await axios.post('/api/user/wishlist',{
+                    product
+                },{
+                    headers: {
+                        authorization: wishlistToken,
+                      },
+                })
+                setWishlist(wishlistResponse.data.wishlist);
+                setWishlistCount(count=>count+1)
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        }else{
+            navigate('/login')
         }
     }
 
 
     return(
         <div>
-        <Navbar/>
         <div className="product-main-sidebar ">
         <div className='hamburger-wrapper' onClick={()=>hamburgerHandler(display,setDisplay)}>
                 <span style={{color:"black"}} id="hamburger" className="material-icons">
@@ -69,7 +69,7 @@ export const Products=()=>{
                 Showing All Products
             </div>
             <div className="all-products">
-                {compose.map(product=>(
+               {compose.length===0?<h1>No Products found</h1>:compose.map(product=>(
                    <div key={product.id} className="card product-cards">
                    <div className="badge-section"></div>
                    {wishlist.some(wishProduct=>wishProduct.id===product.id)?<div onClick={()=>navigate('/wishlist')}>
@@ -97,6 +97,7 @@ export const Products=()=>{
                    </div>
                </div>
                 ))}
+                
             </div>
         </main>
         </div>

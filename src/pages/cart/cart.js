@@ -1,4 +1,3 @@
-import { Navbar } from "../../components/nav/nav"
 import './cart.css'
 import '../wishlist/wishlist.css'
 import { useCart } from "../../filter-context/cart-context"
@@ -75,7 +74,6 @@ export const Cart=()=>{
     
     return (
         <div>
-            <Navbar/>
             {cart.length===0?<div className="showing flex justify-content-center p-1">
                 <h2 className="wishlist-heading">No items in cart</h2>
             </div>:""}

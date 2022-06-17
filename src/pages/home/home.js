@@ -5,7 +5,7 @@ import {HomeCard} from '../../components/home-card/home-card'
 export const Home=()=>{
     return(
         <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <Category/>
         <Banner/>
         <HomeCard/> 

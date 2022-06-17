@@ -1,7 +1,5 @@
 import axios from "axios";
-import { useCart } from "../filter-context/cart-context";
-import { useNavigate } from "react-router-dom";
-export const addToCartHandler= async (product,setCart,setCartCount,navigate,setShowToast)=>{
+export const addToCartHandler= async (product,setCart,setCartCount,navigate)=>{
     const token=localStorage.getItem("user")
     if(token)
     {
@@ -10,7 +8,7 @@ export const addToCartHandler= async (product,setCart,setCartCount,navigate,setS
                 product
             },{
                 headers: {
-                    authorization: token, // passing token as an authorization header
+                    authorization: token,
                   },
             }
             );

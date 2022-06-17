@@ -25,7 +25,9 @@ export const reducerFunc=(state,action)=>{
         case 'fashion':
             return {...state,category:{...state.category,fashion:!state.category.fashion}}
         case 'clear-all':
-            return {...state,sorting:null,isInStock:false,fastDelivery:false,priceRange:50000,rating:5,category:{mobile:false,grocery:false,fashion:false,home:false,electronics:false,Appliances:false}}    
+            return {...state,sorting:null,isInStock:false,fastDelivery:false,priceRange:50000,rating:5,category:{mobile:false,grocery:false,fashion:false,home:false,electronics:false,Appliances:false}}
+        case 'search':
+            return {...state,search:action.payload} 
         default:
             return state;
     }

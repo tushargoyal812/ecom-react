@@ -7,10 +7,12 @@ import { SignUp } from "./pages/sign-up/sign-up";
 import { Wishlist } from "./pages/wishlist/wishlist";
 import {Routes,Route} from 'react-router-dom'
 import { FilteredCategory } from "./pages/filtered-category/filtered-category";
+import { Navbar } from "./components/nav/nav";
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/products' element={<Products/>}/>

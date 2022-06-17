@@ -34,7 +34,6 @@ export const SignUp=()=>{
 
     return(
         <>
-        <Navbar/>
         <section className="signup-section centered align-items ">
         <div className="signup-wrapper flex flex-direction-col align-items px-3 pb-4">
             <h1 className="mb-3">Signup</h1>

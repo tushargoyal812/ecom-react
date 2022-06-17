@@ -29,7 +29,6 @@ export const Category=()=>{
         <div className="home-categories">
             {category.map(item=>(
                 <div key={item.id} className="categoies p-1">
-                    {console.log(item.categoryName)}
                 <Link onClick={()=>dispatch({type:item.categoryName.toLowerCase()})} to="/products" className="category-links flex-col-center">
                     <img src={item.image} alt="category-image" className="category-img"/>
                     <p className="category-text p-1">{item.categoryName}</p>
